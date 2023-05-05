@@ -1,0 +1,109 @@
+@if($currentStep != 1)
+    <div style="display: none" class="row setup-content" id="step-1">
+        @endif
+        <div class="col-xs-12">
+            <div class="col-md-12">
+                <br>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="title">{{trans('Parent_trans.Email')}}</label>
+                        <input type="email" wire:model="Email"  class="form-control" autocomplete="off"  required   >
+                        @error('Email')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="col">
+                        <label for="title">{{trans('Parent_trans.Password')}}</label>
+                        <input type="password" wire:model="Password" class="form-control" autocomplete="off" required   >
+                        @error('Password')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col">
+                        <label for="title">{{trans('Parent_trans.Name_Father_ar')}}</label>
+                        <input type="text" wire:model="Name_Father" class="form-control"  required   >
+                        @error('Name_Father')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="col">
+                        <label for="title">{{trans('Parent_trans.Name_Father_en')}}</label>
+                        <input type="text" wire:model="Name_Father_en" class="form-control"  required   >
+                        @error('Name_Father_en')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-3">
+                        <label for="title">{{trans('Parent_trans.Job_Father_ar')}}</label>
+                        <input type="text" wire:model="Job_Father" class="form-control" required   >
+                        @error('Job_Father')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="col-md-3">
+                        <label for="title">{{trans('Parent_trans.Job_Father_en')}}</label>
+                        <input type="text" wire:model="Job_Father_en" class="form-control" required   >
+                        @error('Job_Father_en')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="col">
+                        <label for="title">{{trans('Parent_trans.National_ID_Father')}}</label>
+                        <input type="text" wire:model="National_ID_Father" class="form-control" required   >
+                        @error('National_ID_Father')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                  
+
+                    <div class="col">
+                        <label for="title">{{trans('Parent_trans.Phone_Father')}}</label>
+                        <input type="text" wire:model="Phone_Father" class="form-control" required   >
+                        @error('Phone_Father')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+                   
+                    <div class="form-group col">
+                        <label for="inputState">{{trans('Parent_trans.Blood_Type_Father_id')}}</label>
+                        <select class="custom-select my-1 mr-sm-2" wire:model="Blood_Type_Father_id">
+                            <option selected>{{trans('Parent_trans.Choose')}}...</option>
+                            @foreach($Type_Bloods as $Type_Blood)
+                                <option value="{{$Type_Blood->id}}">{{$Type_Blood->name}}</option>
+                            @endforeach
+                        </select>
+                        @error('Blood_Type_Father_id')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">{{trans('Parent_trans.Address_Father')}}</label>
+                    <textarea class="form-control" wire:model="Address_Father" id="exampleFormControlTextarea1" rows="4"></textarea>
+                    @error('Address_Father')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" wire:click="firstStepSubmit"
+                        type="button">{{trans('Parent_trans.Next')}}
+                </button>
+
+            </div>
+        </div>
+    </div>
